@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a little something for you</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f4f0ea;
+      color: #27231f;
+      font-family: "DM Sans", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 650px;
+      text-align: center;
+      position: relative;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.7s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .small {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8b8177;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 400;
+      font-size: clamp(38px, 8vw, 70px);
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 400;
+      font-size: clamp(30px, 6vw, 50px);
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #625b54;
+      max-width: 520px;
+      margin: 0 auto 30px;
+    }
+
+    .italic {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 19px;
+      color: #403a35;
+    }
+
+    button {
+      border: none;
+      font-family: "DM Sans", sans-serif;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .next {
+      background: #27231f;
+      color: #f4f0ea;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    .next:hover {
+      transform: translateY(-2px);
+      background: #3d3731;
+    }
+
+    .buttons {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      margin-top: 25px;
+    }
+
+    .yes,
+    .no {
+      position: absolute;
+      top: 20px;
+      padding: 13px 27px;
+      border-radius: 30px;
+      font-size: 13px;
+    }
+
+    .yes {
+      background: #27231f;
+      color: white;
+      left: calc(50% - 110px);
+    }
+
+    .yes:hover {
+      transform: translateY(-3px);
+    }
+
+    .no {
+      background: transparent;
+      border: 1px solid #b8afa5;
+      color: #777068;
+      left: calc(50% + 20px);
+    }
+
+    .progress {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #aaa097;
+    }
+
+    .final h1 {
+      font-size: clamp(45px, 10vw, 85px);
+    }
+
+    .final p {
+      margin-bottom: 10px;
+    }
+
+    .line {
+      width: 45px;
+      height: 1px;
+      background: #aaa097;
+      margin: 25px auto;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .buttons {
+        height: 130px;
+      }
+
+      .yes {
+        left: 50%;
+        transform: translateX(-100%);
+      }
+
+      .no {
+        left: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- PAGE 1 -->
+    <section class="page active">
+      <div class="small">a little something for you</div>
+
+      <h1>hey, you.</h1>
+
+      <p class="italic">
+        just take your time.
+      </p>
+
+      <button class="next" onclick="nextPage()">
+        continue
+      </button>
+    </section>
+
+
+    <!-- PAGE 2 -->
+    <section class="page">
+      <div class="small">01 / something i've been meaning to say</div>
+
+      <h2>
+        there's something<br>
+        i've been keeping to myself.
+      </h2>
+
+      <p>
+        Sebenarnya aku udah lama suka sama kamu.
+        Bukan yang tiba-tiba muncul kemarin sore,
+        but somehow, the feeling just stayed.
+      </p>
+
+      <button class="next" onclick="nextPage()">
+        next
+      </button>
+    </section>
+
+
+    <!-- PAGE 3 -->
+    <section class="page">
+      <div class="small">02 / and honestly</div>
+
+      <h2>
+        it's not just<br>
+        a random thought.
+      </h2>
+
+      <p>
+        I've thought about it more times than I probably should.
+        Aku suka cara kamu ngobrol, cara kamu jadi diri kamu sendiri,
+        dan hal-hal kecil tentang kamu yang mungkin kamu sendiri nggak sadar.
+      </p>
+
+      <button class="next" onclick="nextPage()">
+        keep going
+      </button>
+    </section>
+
+
+    <!-- PAGE 4 -->
+    <section class="page">
+      <div class="small">03 / somewhere along the way</div>
+
+      <h2>
+        you became<br>
+        someone special to me.
+      </h2>
+
+      <p>
+        At first, I thought,
+        "yaudah, suka aja. nggak perlu bilang-bilang."
+        But the more I know you,
+        the more I realize that maybe keeping it to myself
+        forever isn't exactly what I want.
+      </p>
+
+      <button class="next" onclick="nextPage()">
+        one more thing
+      </button>
+    </section>
+
+
+    <!-- PAGE 5 -->
+    <section class="page">
+      <div class="small">04 / so here i am</div>
+
+      <h2>
+        no big dramatic speech.
+      </h2>
+
+      <p>
+        No complicated explanation either.
+        I just want you to know that somewhere along the way,
+        you became someone really special to me.
+      </p>
+
+      <div class="line"></div>
+
+      <p class="italic">
+        and honestly, I'd really like to find out where this goes.
+      </p>
+
+      <button class="next" onclick="nextPage()">
+        so...
+      </button>
+    </section>
+
+
+    <!-- PAGE 6 -->
+    <section class="page">
+      <div class="small">05 / the actual question</div>
+
+      <h2>
+        would you wanna<br>
+        be my girlfriend?
+      </h2>
+
+      <p>
+        just answer honestly.
+      </p>
+
+      <div class="buttons">
+
+        <button class="yes" onclick="sayYes()">
+          YES
+        </button>
+
+        <button class="no" id="noButton">
+          NO
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- FINAL PAGE -->
+    <section class="page final">
+      <div class="small">okay, so...</div>
+
+      <h1>we're doing this.</h1>
+
+      <div class="line"></div>
+
+      <p>
+        I guess this is officially<br>
+        my favorite click ever.
+      </p>
+
+      <p class="italic">
+        see you on the other side.
+      </p>
+    </section>
+
+  </div>
+
+  <div class="progress" id="progress">
+    01 — 06
+  </div>
+
+
+  <script>
+
+    let currentPage = 0;
+
+    const pages = document.querySelectorAll(".page");
+    const progress = document.getElementById("progress");
+
+    function nextPage() {
+
+      pages[currentPage].classList.remove("active");
+
+      currentPage++;
+
+      pages[currentPage].classList.add("active");
+
+      if (currentPage === pages.length - 1) {
+        progress.style.display = "none";
+      } else {
+        progress.textContent =
+          String(currentPage + 1).padStart(2, "0") + " — 06";
+      }
+    }
+
+
+    function sayYes() {
+
+      pages[currentPage].classList.remove("active");
+
+      currentPage = pages.length - 1;
+
+      pages[currentPage].classList.add("active");
+
+      progress.style.display = "none";
+    }
+
+
+    // =========================
+    // NO BUTTON - RUN AWAY
+    // =========================
+
+    const noButton = document.getElementById("noButton");
+
+    function moveNoButton() {
+
+      const container = document.querySelector(".buttons");
+
+      const maxX = container.clientWidth - noButton.offsetWidth;
+      const maxY = container.clientHeight - noButton.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noButton.style.left = randomX + "px";
+      noButton.style.top = randomY + "px";
+    }
+
+
+    // Desktop
+    noButton.addEventListener("mouseenter", moveNoButton);
+
+    // Mobile / touch
+    noButton.addEventListener("touchstart", function(e) {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+
+    // Kalau somehow berhasil diklik...
+    noButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+  </script>
+
+</body>
+</html>
